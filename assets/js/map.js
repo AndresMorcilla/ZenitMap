@@ -4,7 +4,7 @@ const project = params.get("proyect") || "Sin nombre";
 const isEditMode = params.has("edit");
 
 // Mostrar título del proyecto
-document.getElementById("project-title").textContent = `Proyecto: ${project}`;
+document.getElementById("project-title").textContent = `${project}`;
 
 // Inicializar mapa
 var map = L.map('map').setView([-34.6037, -58.3816], 13);
@@ -61,8 +61,8 @@ function savePin(lat, lng) {
   let popupHtml = `<h3>${title}</h3><p>${desc}</p>`;
   if (imgURL) popupHtml += `<img src="${imgURL}" width="100%">`;
   popupHtml += `
-    <br><button onclick="editPin(${lat}, ${lng})">✏️ Editar</button>
-    <button onclick="deletePin(${lat}, ${lng})">🗑️ Borrar</button>
+    <br><button onclick="editPin(${lat}, ${lng})">Editar</button>
+    <button onclick="deletePin(${lat}, ${lng})">Borrar</button>
   `;
 
   marker.bindPopup(popupHtml);
@@ -83,7 +83,7 @@ function deletePin(lat, lng) {
   }
 }
 
-// Editar pin (muy básico: vuelve a abrir formulario)
+// Editar pin (muy basico: vuelve a abrir formulario)
 function editPin(lat, lng) {
   const pin = markers.find(p => p.lat === lat && p.lng === lng);
   if (pin) {
@@ -135,10 +135,10 @@ document.getElementById("search-btn").addEventListener("click", () => {
         const lat = parseFloat(place.lat);
         const lon = parseFloat(place.lon);
 
-        map.setView([lat, lon], 6); // mover cámara
+        map.setView([lat, lon], 6); // mover camara (osea al lugar donde hiciste busqueda)
 
         if (isEditMode) {
-          // Abrir formulario para añadir pin
+          // Volveeeeemos a abrir el formulario
           const popupContent = `
             <b>Nuevo Pin en ${query}</b><br>
             <input type="text" id="pin-title" placeholder="Título"><br>
@@ -151,7 +151,7 @@ document.getElementById("search-btn").addEventListener("click", () => {
             .bindPopup(popupContent)
             .openPopup();
         } else {
-          // Solo mostrar ubicación
+          // Solo mostrar ubicacion
           L.marker([lat, lon]).addTo(map)
             .bindPopup(`<b>${query}</b>`)
             .openPopup();
