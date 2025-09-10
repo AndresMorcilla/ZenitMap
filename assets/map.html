@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZenitMap - Proyecto</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="style/global.css">
+  <link rel="stylesheet" href="style/map.css">
+</head>
+<body>
+  <header>
+    <h1 id="project-title">Proyecto</h1>
+  </header>
+
+  <main>
+    <div id="map"></div>
+    <div id="toolbar" class="hidden">
+        <input type="text" id="search-input" placeholder="Buscar lugar...">
+        <button id="search-btn">🔍 Buscar</button>
+        <button id="add-marker">➕ Añadir pin</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>ZenitMap | Proyecto interactivo</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
